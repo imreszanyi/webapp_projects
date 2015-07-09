@@ -61,15 +61,26 @@ public class GreetingServlet extends HttpServlet {
 
         String username = request.getParameter("username");
 
-//        if ((username != null) && (username.length() > 0)) {
-//            RequestDispatcher dispatcher =
-//                getServletContext()
-//                    .getRequestDispatcher("/response");
-//
-//            if (dispatcher != null) {
-//                dispatcher.include(request, response);
-//            }
-//        }
+
+        if ((username != null) && (username.length() > 0)) {
+            out.println("<h2>Hello, " + username + "!</h2>");
+        }
+        String hobby = request.getParameter("hobby");
+        if ((hobby != null) && (hobby.length() > 0)) {
+        	out.println("<h2>Your hobby is " + hobby + "!</h2>");
+        }
+        
+        /*
+        if ((username != null) && (username.length() > 0)) {
+            RequestDispatcher dispatcher =
+                getServletContext()
+                    .getRequestDispatcher("/Response");
+
+            if (dispatcher != null) {
+                dispatcher.include(request, response);
+            }
+        }*/
+
 
         out.println("</body></html>");
         out.close();
