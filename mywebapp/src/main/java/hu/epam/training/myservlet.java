@@ -48,12 +48,13 @@ public class myservlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    /*
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
         processRequest(request, response);
     } 
-
+*/
     /** 
      * Handles the HTTP <code>POST</code> method.
      * @param request servlet request
@@ -75,5 +76,37 @@ public class myservlet extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
+    
+    
+    ////// 
+      public void doGet(HttpServletRequest request, HttpServletResponse response)
+        throws ServletException, IOException {
+        response.setContentType("text/html");
+        response.setBufferSize(8192);
+
+        PrintWriter out = response.getWriter();
+
+        // then write the data of the response
+        out.println("<html>" + "<head><title>Hello</title></head>");
+
+        // then write the data of the response
+        out.println("<body  bgcolor=\"#ffffff\">" +
+            "<img src=\"duke.waving.gif\" alt=\"Duke waving\">" +
+            "<h2>Hello, my name is Luke. What's yours?</h2>" +
+            "<form method=\"get\">" +
+            "<input type=\"text\" name=\"username\" size=\"25\">" + "<p></p>" +
+            "<input type=\"submit\" value=\"Submit\">" +
+            "<input type=\"reset\" value=\"Reset\">" + "</form>");
+
+        String username = request.getParameter("username");
+
+
+        out.println("</body></html>");
+        out.close();
+    }
+     
+     
+    
+    
 
 }
